@@ -59,24 +59,24 @@
 
 ### `search_listings`
 
-- **What it does:**
-- **Inputs:** <!-- name and type each: `max_price` (float), not "a price" -->
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** Searches the mock listings for items that match the user’s description and optional size and price filters, then ranks the best matches first.
+- **Inputs:** `description` (str), `size` (str or None), `max_price` (float or None)
+- **Returns:** A list of matching listing dicts, sorted by relevance; each dict includes `id`, `title`, `description`, `category`, `style_tags`, `size`, `condition`, `price`, `colors`, `brand`, and `platform`.
+- **When it has nothing:** Returns `[]` (an empty list), not `None`.
 
 ### `suggest_outfit`
 
-- **What it does:**
-- **Inputs:**
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** Uses the chosen item and the user’s wardrobe to suggest one or two outfit combinations; if the wardrobe is empty, it gives general styling advice instead.
+- **Inputs:** `new_item` (dict), `wardrobe` (dict)
+- **Returns:** A non-empty string with outfit suggestions, often naming pieces the user already owns when a wardrobe is available.
+- **When it has nothing:** Returns a useful fallback styling message instead of an empty string.
 
 ### `create_fit_card`
 
-- **What it does:**
-- **Inputs:**
-- **Returns:**
-- **When it has nothing:**
+- **What it does:** Writes a short, social-media-style caption for the thrifted item, including the item, price, platform, and the mood or vibe of the look.
+- **Inputs:** `outfit` (str), `new_item` (dict)
+- **Returns:** A two-to-four sentence caption string that reads like a real post.
+- **When it has nothing:** If `outfit` is empty or whitespace, it returns a descriptive fallback message instead of crashing.
 
 ---
 
